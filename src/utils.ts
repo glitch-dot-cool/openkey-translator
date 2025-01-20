@@ -33,10 +33,32 @@ const isOpenKey = (
 
 export const getResult = (key: KeysInOpenKeyOrMusical): Result => {
   if (isOpenKey(key)) {
-    const result: OpenKeyToMusicalResult = {
+    const partialResult: Pick<
+      OpenKeyToMusicalResult,
+      "originalKey" | "result"
+    > = {
       originalKey: key,
       result: openkeyMap[key],
-      neighbors: getOpenKeyNeighbors(key),
+    };
+
+    const neighbors = getOpenKeyNeighbors(key);
+
+    const result: OpenKeyToMusicalResult = {
+      ...partialResult,
+      neighbors: {
+        plusOne: {
+          openKey: neighbors.plusOne,
+          musicalKey: openkeyMap[neighbors.plusOne],
+        },
+        minusOne: {
+          openKey: neighbors.minusOne,
+          musicalKey: openkeyMap[neighbors.minusOne],
+        },
+        relative: {
+          openKey: neighbors.relative,
+          musicalKey: openkeyMap[neighbors.relative],
+        },
+      },
     };
 
     return result;
@@ -53,9 +75,18 @@ export const getResult = (key: KeysInOpenKeyOrMusical): Result => {
   const result: MusicalToOpenKeyResult = {
     ...partialResult,
     neighbors: {
-      plusOne: openkeyMap[openKeyNeighbors.plusOne],
-      minusOne: openkeyMap[openKeyNeighbors.minusOne],
-      relative: openkeyMap[openKeyNeighbors.relative],
+      plusOne: {
+        openKey: openKeyNeighbors.plusOne,
+        musicalKey: openkeyMap[openKeyNeighbors.plusOne],
+      },
+      minusOne: {
+        openKey: openKeyNeighbors.minusOne,
+        musicalKey: openkeyMap[openKeyNeighbors.minusOne],
+      },
+      relative: {
+        openKey: openKeyNeighbors.relative,
+        musicalKey: openkeyMap[openKeyNeighbors.relative],
+      },
     },
   };
 

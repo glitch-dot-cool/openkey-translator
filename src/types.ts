@@ -17,15 +17,33 @@ export type KeysInOpenKeyOrMusical =
   | InverseOpenKeyMappingKeys;
 
 type OpenKeyNeighbors = {
-  plusOne: OpenKeyMappingKeys;
-  minusOne: OpenKeyMappingKeys;
-  relative: OpenKeyMappingKeys;
+  plusOne: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
+  minusOne: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
+  relative: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
 };
 
 type MusicalNeighbors = {
-  plusOne: InverseOpenKeyMappingKeys;
-  minusOne: InverseOpenKeyMappingKeys;
-  relative: InverseOpenKeyMappingKeys;
+  plusOne: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
+  minusOne: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
+  relative: {
+    openKey: OpenKeyMappingKeys;
+    musicalKey: InverseOpenKeyMappingKeys;
+  };
 };
 
 export type OpenKeyToMusicalResult = {
