@@ -1,3 +1,5 @@
+import { getColorForKey } from "./utils";
+
 export const openkeyMap = {
   "1m": "A Minor",
   "1d": "C Major",
@@ -51,3 +53,11 @@ export const inverseOpenkeyMap = {
   "D Minor": "12m",
   "F Major": "12d",
 } as const;
+
+export const keyColors = Object.keys(openkeyMap).reduce<Record<string, string>>(
+  (acc, key, index, array) => {
+    acc[key] = getColorForKey(index, array.length);
+    return acc;
+  },
+  {}
+);

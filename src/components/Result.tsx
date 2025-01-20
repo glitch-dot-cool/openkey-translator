@@ -1,21 +1,36 @@
 import { Result as ResultType } from "../types";
+import { useGetColor } from "../useGetColor";
+import { Neighbor } from "./Neighbor";
 
 interface Props {
   result?: ResultType;
 }
 
 export const Result = ({ result }: Props) => {
+  const color = useGetColor({
+    key: result?.originalKey,
+    musicalKeyResult: result?.result,
+  });
+
   if (!result) return <span className="bold large-text">{`\u200B`}</span>;
+
+  const style = { color };
 
   return (
     <div className="result">
-      <span className="bold large-text">{`${result.originalKey} `}</span>
+      <span
+        className="bold large-text"
+        style={style}
+      >{`${result.originalKey} `}</span>
       <span className="bold large-text">= </span>
-      <span className="bold large-text">{`${result.result} `}</span>
+      <span
+        className="bold large-text"
+        style={style}
+      >{`${result.result} `}</span>
       <p>compatible keys:</p>
-      <p>{`${result.neighbors.minusOne.musicalKey} (${result.neighbors.minusOne.openKey})`}</p>
-      <p>{`${result.neighbors.plusOne.musicalKey} (${result.neighbors.plusOne.openKey})`}</p>
-      <p>{`${result.neighbors.relative.musicalKey} (${result.neighbors.relative.openKey})`}</p>
+      <Neighbor neighbor={result.neighbors.minusOne} />
+      <Neighbor neighbor={result.neighbors.plusOne} />
+      <Neighbor neighbor={result.neighbors.relative} />
     </div>
   );
 };

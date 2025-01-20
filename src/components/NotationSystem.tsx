@@ -1,3 +1,4 @@
+import { Fragment } from "react/jsx-runtime";
 import { inverseOpenkeyMap, openkeyMap } from "../consts";
 import { KeysInOpenKeyOrMusical } from "../types";
 import { KeyButton, KeyButtonProps } from "./KeyButton";
@@ -19,7 +20,9 @@ export const NotationSystem = ({ setResult, notationSystem }: Props) => {
   return (
     <section className="notation-system">
       {keys.map((key) => (
-        <KeyButton key={key} musicalKey={key} setResult={setResult} />
+        <Fragment key={key}>
+          <KeyButton _key={key} setResult={setResult} />
+        </Fragment>
       ))}
     </section>
   );

@@ -25,7 +25,7 @@ const getOpenKeyNeighbors = (key: OpenKeyMappingKeys) => {
   return { plusOne, minusOne, relative };
 };
 
-const isOpenKey = (
+export const isOpenKey = (
   key: KeysInOpenKeyOrMusical
 ): key is keyof typeof openkeyMap => {
   return key in openkeyMap;
@@ -92,3 +92,9 @@ export const getResult = (key: KeysInOpenKeyOrMusical): Result => {
 
   return result;
 };
+
+export function getColorForKey(index: number, totalKeys: number): string {
+  const offset = -20;
+  const hue = ((index / totalKeys) * 360 + offset) % 360;
+  return `hsl(${hue}, 80%, 70%)`;
+}
