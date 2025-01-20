@@ -94,7 +94,7 @@ export const getResult = (key: KeysInOpenKeyOrMusical): Result => {
 };
 
 export function getColorForKey(index: number, totalKeys: number): string {
-  const offset = -20;
+  const offset = -100;
   const hue = ((index / totalKeys) * 360 + offset) % 360;
   return `hsl(${hue}, 80%, 70%)`;
 }
