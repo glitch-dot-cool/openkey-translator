@@ -20,3 +20,7 @@ p {
   grid-template-columns: repeat(3, auto);
   gap: 0.5rem;
 }
+
+.bold {
+  font-weight: bold;
+}

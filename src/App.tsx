@@ -1,21 +1,17 @@
 import { useState } from "react";
-import { Result } from "./types";
+import { Result as ResultType } from "./types";
 import "./app.css";
 
 import { NotationSystem } from "./components/NotationSystem";
-
-const formatResult = (result?: Result) => {
-  if (!result) return;
-  return `${result.originalKey} in ${result.originalKeySystem} is equivalent to ${result.result} in ${result.convertedKeySystem}`;
-};
+import { Result } from "./components/Result";
 
 function App() {
-  const [result, setResult] = useState<Result>();
+  const [result, setResult] = useState<ResultType>();
 
   return (
     <div className="main">
       <NotationSystem setResult={setResult} notationSystem="openkey" />
-      <p>{formatResult(result)}</p>
+      <Result result={result} />
       <NotationSystem setResult={setResult} notationSystem="musical notation" />
     </div>
   );
