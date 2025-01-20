@@ -8,12 +8,10 @@ export const Result = ({ result }: Props) => {
   if (!result) return null;
 
   return (
-    <div>
-      <span className="bold">{`${result.originalKey} `}</span>
-      <span>{`in ${result.originalKeySystem} `}</span>
-      <span>is equivalent to </span>
-      <span className="bold">{`${result.result} `}</span>
-      <span>{`in ${result.convertedKeySystem}`}</span>
+    <div className="result">
+      <span className="bold large-text">{`${result.originalKey} `}</span>
+      <span className="bold large-text">= </span>
+      <span className="bold large-text">{`${result.result} `}</span>
     </div>
   );
 };

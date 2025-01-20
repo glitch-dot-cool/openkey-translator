@@ -19,15 +19,11 @@ export type KeysInOpenKeyOrMusical =
 export type OpenKeyToMusicalResult = {
   originalKey: OpenKeyMappingKeys;
   result: InverseOpenKeyMappingKeys;
-  originalKeySystem: "openkey";
-  convertedKeySystem: "musical notation";
 };
 
 export type MusicalToOpenKeyResult = {
   originalKey: InverseOpenKeyMappingKeys;
   result: OpenKeyMappingKeys;
-  originalKeySystem: "musical notation";
-  convertedKeySystem: "openkey";
 };
 
 export type Result = OpenKeyToMusicalResult | MusicalToOpenKeyResult;

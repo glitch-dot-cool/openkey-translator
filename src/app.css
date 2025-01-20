@@ -1,10 +1,17 @@
-button {
-  padding: 0.25rem;
-  border: none;
+body {
+  background-color: #1c1c1c;
 }
 
-p {
-  text-align: center;
+button {
+  padding: 0.75rem 0.25rem;
+  border: none;
+  background-color: #3c3c3c;
+  color: #fff;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #6c6c6c;
 }
 
 .main {
@@ -18,9 +25,18 @@ p {
 .notation-system {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  gap: 0.5rem;
+  gap: 1rem;
+}
+
+.result {
+  text-align: center;
+  color: #fff;
 }
 
 .bold {
   font-weight: bold;
+}
+
+.large-text {
+  font-size: 2rem;
 }

@@ -21,9 +21,7 @@ const getResult = (key: KeysInOpenKeyOrMusical): Result => {
   if (isOpenKey(key)) {
     const result: OpenKeyToMusicalResult = {
       originalKey: key,
-      originalKeySystem: "openkey",
       result: openkeyMap[key],
-      convertedKeySystem: "musical notation",
     };
 
     return result;
@@ -31,9 +29,7 @@ const getResult = (key: KeysInOpenKeyOrMusical): Result => {
 
   const result: MusicalToOpenKeyResult = {
     originalKey: key,
-    originalKeySystem: "musical notation",
     result: inverseOpenkeyMap[key],
-    convertedKeySystem: "openkey",
   };
 
   return result;
