@@ -1,50 +1,19 @@
-# React + TypeScript + Vite
+# openkey translator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+a simple web app to translate from [openkey](https://gist.github.com/jasonm23/9c7b54c1a00e55ef3bfea187bf4ad7c0) to musical keys or vice-versa.
 
-Currently, two official plugins are available:
+for example, you can translate `12m` to `D Minor`, or the other way around.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## local development
 
-## Expanding the ESLint configuration
+### prereqs
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+you must have `git`, `node.js`, and `npm` installed locally. i am using `node@22.12.0` but any reasonably recent version should work.
 
-- Configure the top-level `parserOptions` property like this:
+### install dependencies
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+install local dependencies with `npm i`
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### spin up local dev server
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+to start the dev server, run `npm run dev`
