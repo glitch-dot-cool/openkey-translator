@@ -1,19 +1,8 @@
 import { useState } from "react";
-import { OpenKeyMappingKeys, Result } from "./types";
-import { openkeyMap } from "./consts";
-import { KeyButton, KeyButtonProps } from "./components/KeyButton";
+import { Result } from "./types";
+import "./app.css";
 
-const OpenKey = ({ setResult }: { setResult: KeyButtonProps["setResult"] }) => {
-  const keys = Object.keys(openkeyMap) as unknown as OpenKeyMappingKeys[];
-
-  return (
-    <>
-      {keys.map((key) => (
-        <KeyButton key={key} musicalKey={key} setResult={setResult} />
-      ))}
-    </>
-  );
-};
+import { NotationSystem } from "./components/NotationSystem";
 
 const formatResult = (result?: Result) => {
   if (!result) return;
@@ -24,10 +13,11 @@ function App() {
   const [result, setResult] = useState<Result>();
 
   return (
-    <>
-      <OpenKey setResult={setResult} />
+    <div className="main">
+      <NotationSystem setResult={setResult} notationSystem="openkey" />
       <p>{formatResult(result)}</p>
-    </>
+      <NotationSystem setResult={setResult} notationSystem="musical notation" />
+    </div>
   );
 }
 

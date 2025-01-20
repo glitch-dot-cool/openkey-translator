@@ -1,0 +1,22 @@
+button {
+  padding: 0.25rem;
+  border: none;
+}
+
+p {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.notation-system {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 0.5rem;
+}
