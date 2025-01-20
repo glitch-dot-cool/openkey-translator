@@ -16,14 +16,28 @@ export type KeysInOpenKeyOrMusical =
   | OpenKeyMappingKeys
   | InverseOpenKeyMappingKeys;
 
+type OpenKeyNeighbors = {
+  plusOne: OpenKeyMappingKeys;
+  minusOne: OpenKeyMappingKeys;
+  relative: OpenKeyMappingKeys;
+};
+
+type MusicalNeighbors = {
+  plusOne: InverseOpenKeyMappingKeys;
+  minusOne: InverseOpenKeyMappingKeys;
+  relative: InverseOpenKeyMappingKeys;
+};
+
 export type OpenKeyToMusicalResult = {
   originalKey: OpenKeyMappingKeys;
   result: InverseOpenKeyMappingKeys;
+  neighbors: OpenKeyNeighbors;
 };
 
 export type MusicalToOpenKeyResult = {
   originalKey: InverseOpenKeyMappingKeys;
   result: OpenKeyMappingKeys;
+  neighbors: MusicalNeighbors;
 };
 
 export type Result = OpenKeyToMusicalResult | MusicalToOpenKeyResult;

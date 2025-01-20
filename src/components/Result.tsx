@@ -12,6 +12,10 @@ export const Result = ({ result }: Props) => {
       <span className="bold large-text">{`${result.originalKey} `}</span>
       <span className="bold large-text">= </span>
       <span className="bold large-text">{`${result.result} `}</span>
+      <p>compatible keys:</p>
+      <p>{result.neighbors.minusOne}</p>
+      <p>{result.neighbors.plusOne}</p>
+      <p>{result.neighbors.relative}</p>
     </div>
   );
 };
