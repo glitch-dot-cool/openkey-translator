@@ -27,7 +27,7 @@ export const Result = ({ result }: Props) => {
         className="bold large-text"
         style={style}
       >{`${result.result} `}</span>
-      <p>compatible keys:</p>
+      <p className="compatible-keys-header">compatible keys:</p>
       <Neighbor neighbor={result.neighbors.minusOne} />
       <Neighbor neighbor={result.neighbors.plusOne} />
       <Neighbor neighbor={result.neighbors.relative} />

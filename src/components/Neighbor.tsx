@@ -12,6 +12,9 @@ export const Neighbor = ({
   });
 
   return (
-    <p style={{ color }}>{`${neighbor.musicalKey} (${neighbor.openKey})`}</p>
+    <p
+      className="compatible-key"
+      style={{ color }}
+    >{`${neighbor.musicalKey} (${neighbor.openKey})`}</p>
   );
 };
