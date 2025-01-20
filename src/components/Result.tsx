@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const Result = ({ result }: Props) => {
-  if (!result) return null;
+  if (!result) return <span className="bold large-text">{`\u200B`}</span>;
 
   return (
     <div className="result">
