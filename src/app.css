@@ -19,7 +19,6 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
   padding: 1rem;
 }
 
@@ -32,6 +31,11 @@ button:hover {
 .result {
   text-align: center;
   color: #fff;
+  margin: 1rem 0;
+}
+
+.reference-button {
+  margin-top: 1rem;
 }
 
 .reference-image {

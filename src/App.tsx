@@ -8,23 +8,14 @@ import { Reference } from "./components/Reference";
 
 function App() {
   const [result, setResult] = useState<ResultType>();
-  const [showReference, setShowReference] = useState(false);
 
   return (
-    <>
-      <div className="main">
-        <NotationSystem setResult={setResult} notationSystem="openkey" />
-        <Result result={result} />
-        <NotationSystem
-          setResult={setResult}
-          notationSystem="musical notation"
-        />
-        <button onClick={() => setShowReference((prev) => !prev)}>
-          toggle reference
-        </button>
-      </div>
-      {showReference && <Reference />}
-    </>
+    <div className="main">
+      <NotationSystem setResult={setResult} notationSystem="openkey" />
+      <Result result={result} />
+      <NotationSystem setResult={setResult} notationSystem="musical notation" />
+      <Reference />
+    </div>
   );
 }
 
