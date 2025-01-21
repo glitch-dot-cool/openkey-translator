@@ -1,5 +1,5 @@
 import { Result as ResultType } from "../types";
-import { useGetColor } from "../useGetColor";
+import { getColor } from "../utils";
 import { Neighbor } from "./Neighbor";
 
 interface Props {
@@ -7,13 +7,9 @@ interface Props {
 }
 
 export const Result = ({ result }: Props) => {
-  const color = useGetColor({
-    key: result?.originalKey,
-    musicalKeyResult: result?.result,
-  });
-
   if (!result) return <span className="bold large-text">{`\u200B`}</span>;
 
+  const color = getColor({ key: result?.originalKey });
   const style = { color };
 
   return (

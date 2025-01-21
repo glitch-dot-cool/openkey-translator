@@ -1,4 +1,4 @@
-import { inverseOpenkeyMap, openkeyMap } from "./consts";
+import { inverseOpenkeyMap, keyColors, openkeyMap } from "./consts";
 import {
   KeysInOpenKeyOrMusical,
   MusicalToOpenKeyResult,
@@ -98,3 +98,11 @@ export function getColorForKey(index: number, totalKeys: number): string {
   const hue = ((index / totalKeys) * 360 + offset) % 360;
   return `hsl(${hue}, 80%, 70%)`;
 }
+
+export const getColor = ({ key }: { key: KeysInOpenKeyOrMusical }) => {
+  if (!key) return "";
+
+  if (isOpenKey(key)) return keyColors[key];
+
+  return keyColors[inverseOpenkeyMap[key]];
+};

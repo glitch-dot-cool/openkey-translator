@@ -1,15 +1,12 @@
 import { Result } from "../types";
-import { useGetColor } from "../useGetColor";
+import { getColor } from "../utils";
 
 export const Neighbor = ({
   neighbor,
 }: {
   neighbor: Result["neighbors"][keyof Result["neighbors"]];
 }) => {
-  const color = useGetColor({
-    key: neighbor.openKey,
-    musicalKeyResult: neighbor.musicalKey,
-  });
+  const color = getColor({ key: neighbor.openKey });
 
   return (
     <p

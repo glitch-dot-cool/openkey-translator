@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { KeysInOpenKeyOrMusical, Result } from "../types";
-import { useGetColor } from "../useGetColor";
-import { getResult } from "../utils";
+import { getColor, getResult } from "../utils";
 
 export interface KeyButtonProps {
   _key: KeysInOpenKeyOrMusical;
@@ -10,10 +9,7 @@ export interface KeyButtonProps {
 
 export const KeyButton = ({ _key, setResult }: KeyButtonProps) => {
   const result = useMemo(() => getResult(_key), [_key]);
-  const color = useGetColor({
-    key: _key,
-    musicalKeyResult: result.result,
-  });
+  const color = useMemo(() => getColor({ key: _key }), [_key]);
 
   return (
     <button onClick={() => setResult(result)} style={{ color }}>
