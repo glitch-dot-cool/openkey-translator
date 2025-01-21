@@ -29,8 +29,8 @@ export const Result = ({ result }: Props) => {
       >{`${result.result} `}</span>
       <p className="compatible-keys-header">compatible keys:</p>
       <Neighbor neighbor={result.neighbors.minusOne} />
-      <Neighbor neighbor={result.neighbors.plusOne} />
       <Neighbor neighbor={result.neighbors.relative} />
+      <Neighbor neighbor={result.neighbors.plusOne} />
     </div>
   );
 };
