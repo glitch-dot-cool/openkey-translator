@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { KeysInOpenKeyOrMusical, Result } from "../types";
 import { useGetColor } from "../useGetColor";
 import { getResult } from "../utils";
@@ -8,7 +9,7 @@ export interface KeyButtonProps {
 }
 
 export const KeyButton = ({ _key, setResult }: KeyButtonProps) => {
-  const result = getResult(_key);
+  const result = useMemo(() => getResult(_key), [_key]);
   const color = useGetColor({
     key: _key,
     musicalKeyResult: result.result,
